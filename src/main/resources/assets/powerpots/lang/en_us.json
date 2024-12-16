@@ -1,0 +1,9 @@
+{
+  "powerpots.itemGroup.items": "Power Pots",
+  "block.powerpots.power_pot_1": "Power-Pot [Tier I]",
+  "block.powerpots.power_pot_2": "Power-Pot [Tier II]",
+  "block.powerpots.power_pot_3": "Power-Pot [Tier III]",
+  "tooltip.powerpots.energy": "Energy Cost: %d",
+  "tooltip.powerpots.item": "Item Mult: %dx",
+  "tooltip.powerpots.speed": "Speed Increase: %dx"
+}
