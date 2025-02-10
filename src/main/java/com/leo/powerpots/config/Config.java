@@ -74,7 +74,6 @@ public class Config {
         }
     }
 
-    @Expose
     public List<PotTier> TIERS = new ArrayList<>();
 
     private void onConfigLoaded() {
