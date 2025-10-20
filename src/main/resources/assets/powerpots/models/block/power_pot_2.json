@@ -1,6 +1,0 @@
-{
-	"parent": "powerpots:block/power_pot_base",
-	"textures": {
-		"tier_indicator": "powerpots:block/tier_2"
-	}
-}
