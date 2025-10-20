@@ -3,7 +3,7 @@ package com.leo.powerpots.world.block;
 import com.leo.powerpots.PowerPots;
 import com.leo.powerpots.config.Config;
 import com.leo.powerpots.init.ModBlockEntities;
-import com.leo.powerpots.world.block.entity.PowerPotBE;
+import com.leo.powerpots.world.block.entity.PowerPotBlockEntity;
 import net.darkhax.botanypots.common.api.context.BotanyPotContext;
 import net.darkhax.botanypots.common.api.data.recipes.crop.Crop;
 import net.darkhax.botanypots.common.api.data.recipes.soil.Soil;
@@ -38,14 +38,14 @@ public class PowerPotBlock extends BotanyPotBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return blockEntity(pPos, pState, null);
+        return blockEntity(pPos, pState, null, tier);
     }
 
-    public PowerPotBE blockEntity(BlockPos pos, BlockState state, @Nullable BlockGetter level) {
-        if(level == null) return new PowerPotBE(pos, state);
-        if(level.getBlockEntity(pos) instanceof PowerPotBE be) return be;
+    public PowerPotBlockEntity blockEntity(BlockPos pos, BlockState state, @Nullable BlockGetter level, Config.PotTier tier) {
+        if(level == null) return new PowerPotBlockEntity(pos, state, tier);
+        if(level.getBlockEntity(pos) instanceof PowerPotBlockEntity be) return be;
 
-        return new PowerPotBE(pos, state);
+        return new PowerPotBlockEntity(pos, state, tier);
     }
 
     @Override
@@ -75,6 +75,6 @@ public class PowerPotBlock extends BotanyPotBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.POWER_POT_BE.get(), PowerPotBE::tickPot);
+        return createTickerHelper(pBlockEntityType, ModBlockEntities.POWER_POT_BE.get(), PowerPotBlockEntity::tickPot);
     }
 }
